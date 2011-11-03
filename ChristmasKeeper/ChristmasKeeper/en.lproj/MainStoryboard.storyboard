@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Aqy-eC-bJO">
+    <dependencies>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="fLG-2T-iQZ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgQ-jC-V5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Aqy-eC-bJO" customClass="ChristmasKeeperRootViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y2t-sT-36A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Christmas" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="50" id="E3Y-GF-NbQ">
+                                <rect key="frame" x="20" y="81" width="280" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Keeper" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="50" id="BEa-is-c3D">
+                                <rect key="frame" x="20" y="317" width="280" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="images.jpeg" id="hOT-bB-Uzf">
+                                <rect key="frame" x="81" y="150" width="159" height="159"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="UgY-rA-np0" kind="modal" identifier="ChristmasTableSegue" modalTransitionStyle="crossDissolve" id="ntX-76-FaP"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-3018" y="-715"/>
+        </scene>
+        <scene sceneID="yFJ-Qn-axb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNb-1m-LSj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="UgY-rA-np0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Lyy-d2-6Gs"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Phw-Sr-2cd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bgx-86-Gp1" kind="relationship" relationship="rootViewController" id="CEh-5n-fjq"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-2582" y="-715"/>
+        </scene>
+        <scene sceneID="hYm-xg-U2i">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KI3-lN-37L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="P1f-cG-IYA" customClass="ChristmasDetailsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="76W-Yb-x7h">
+                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="RJY-xb-7Ak">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChristmasDetailTextCell" rowHeight="112" id="5GG-My-cXl">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="113"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="111"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="eCp-Ba-Pkn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="111"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChristmasDetailsImageCell" rowHeight="236" id="TqS-03-O32">
+                                        <rect key="frame" x="0.0" y="123" width="320" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="235"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="images.jpeg" id="4L7-IT-8O9">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="235"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="P1f-cG-IYA" id="CPP-pt-wg8"/>
+                            <outlet property="delegate" destination="P1f-cG-IYA" id="VRM-mT-2x3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Present Details" id="rx0-vC-BTl"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-1625" y="-715"/>
+        </scene>
+        <scene sceneID="a5G-kU-2aj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihW-oj-3S2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="bgx-86-Gp1" customClass="ChristmasListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fit-A9-2qy">
+                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChristmasListCell" rowHeight="90" id="P2y-uE-GXx" customClass="ChristmasListTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is placeholder text for when I want to add a new present" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" id="ueY-DW-dQm">
+                                            <rect key="frame" x="102" y="0.0" width="198" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="images.jpeg" id="gCJ-KN-CHb">
+                                            <rect key="frame" x="0.0" y="0.0" width="94" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="textView" destination="ueY-DW-dQm" id="mbh-5p-V1c"/>
+                                    <outlet property="thumbnail" destination="gCJ-KN-CHb" id="VIT-99-a7c"/>
+                                    <segue destination="P1f-cG-IYA" kind="push" identifier="ChristmasDetailsSegue" id="nRO-vP-3dE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bgx-86-Gp1" id="wFy-Rx-1Gg"/>
+                            <outlet property="delegate" destination="bgx-86-Gp1" id="VHa-yx-n8G"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Christmas Keeper" id="g4N-Af-x5C">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="y41-br-iQJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7IB-xL-woX">
+                            <connections>
+                                <segue destination="dzT-Fc-y0l" kind="modal" id="Xsh-ze-8WX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-2158" y="-715"/>
+        </scene>
+        <scene sceneID="VbJ-ZH-g5d">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqs-Bq-bug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="dzT-Fc-y0l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wIy-PL-xXQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bRv-GE-eKO" kind="relationship" relationship="rootViewController" id="rgx-mX-peT"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1625" y="-1390"/>
+        </scene>
+        <scene sceneID="Ygb-y9-0pN">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wgz-zm-Wr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="bRv-GE-eKO" customClass="AddChristmasItemViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lwk-LR-n39">
+                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="AVW-dw-8aQ">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" rowHeight="112" id="FUI-3V-G5P">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="113"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="111"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="HZd-2K-1Sh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="111"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="236" id="eDS-J0-70p">
+                                        <rect key="frame" x="0.0" y="123" width="320" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="235"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="images.jpeg" id="GXh-b8-sla">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="235"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="bRv-GE-eKO" id="lmT-Pf-eMR"/>
+                            <outlet property="delegate" destination="bRv-GE-eKO" id="fkL-Pb-Jxk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Present" id="tjR-1L-uSS">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1u4-Fz-Kzc">
+                            <connections>
+                                <action selector="cancel:" destination="bRv-GE-eKO" id="cth-MU-q2b"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="omo-3r-wtv">
+                            <connections>
+                                <action selector="done:" destination="bRv-GE-eKO" id="ag2-db-cIs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-1207" y="-1390"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="images.jpeg" width="204" height="204"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <nil key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

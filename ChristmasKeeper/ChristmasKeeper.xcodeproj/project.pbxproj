@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		832A8A7A1462384400FDDE58 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832A8A791462384400FDDE58 /* ImageIO.framework */; };
+		833919A9145C4ADC00F3AAC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833919A8145C4ADC00F3AAC3 /* UIKit.framework */; };
+		833919AB145C4ADC00F3AAC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833919AA145C4ADC00F3AAC3 /* Foundation.framework */; };
+		833919AD145C4ADC00F3AAC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833919AC145C4ADC00F3AAC3 /* CoreGraphics.framework */; };
+		833919B3145C4ADC00F3AAC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 833919B1145C4ADC00F3AAC3 /* InfoPlist.strings */; };
+		833919B5145C4ADC00F3AAC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919B4145C4ADC00F3AAC3 /* main.m */; };
+		833919B9145C4ADC00F3AAC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919B8145C4ADC00F3AAC3 /* AppDelegate.m */; };
+		833919BC145C4ADC00F3AAC3 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833919BA145C4ADC00F3AAC3 /* MainStoryboard.storyboard */; };
+		833919BF145C4ADC00F3AAC3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919BE145C4ADC00F3AAC3 /* ViewController.m */; };
+		833919C6145C4ED800F3AAC3 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 833919C5145C4ED800F3AAC3 /* images.jpeg */; };
+		833919C9145CF82F00F3AAC3 /* ChristmasKeeperRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919C8145CF82F00F3AAC3 /* ChristmasKeeperRootViewController.m */; };
+		833919D7145CFECF00F3AAC3 /* ChristmasListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919D6145CFECF00F3AAC3 /* ChristmasListTableViewController.m */; };
+		833919DA145CFEE000F3AAC3 /* ChristmasDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919D9145CFEE000F3AAC3 /* ChristmasDetailsTableViewController.m */; };
+		833919DD145F546B00F3AAC3 /* ChristmasItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919DC145F546B00F3AAC3 /* ChristmasItems.m */; };
+		833919E1145F8D7300F3AAC3 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919E0145F8D7300F3AAC3 /* KeychainWrapper.m */; };
+		833919E4145F911F00F3AAC3 /* ChristmasConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 833919E3145F911F00F3AAC3 /* ChristmasConstants.m */; };
+		833919E6145F990F00F3AAC3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833919E5145F990F00F3AAC3 /* Security.framework */; };
+		833B604B14623637009D5E65 /* default.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 833B604A14623637009D5E65 /* default.PNG */; };
+		833B604E1462363E009D5E65 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 833B604D1462363E009D5E65 /* Default@2x.png */; };
+		83A032601460E47D002F6D0D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A0325F1460E47D002F6D0D /* add.png */; };
+		83A032631460E7FC002F6D0D /* AddChristmasItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A032621460E7FC002F6D0D /* AddChristmasItemViewController.m */; };
+		83A032671460E98A002F6D0D /* ChristmasListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A032661460E98A002F6D0D /* ChristmasListTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		832A8A791462384400FDDE58 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		833919A4145C4ADC00F3AAC3 /* ChristmasKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChristmasKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		833919A8145C4ADC00F3AAC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		833919AA145C4ADC00F3AAC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		833919AC145C4ADC00F3AAC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		833919B0145C4ADC00F3AAC3 /* ChristmasKeeper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChristmasKeeper-Info.plist"; sourceTree = "<group>"; };
+		833919B2145C4ADC00F3AAC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		833919B4145C4ADC00F3AAC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		833919B6145C4ADC00F3AAC3 /* ChristmasKeeper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChristmasKeeper-Prefix.pch"; sourceTree = "<group>"; };
+		833919B7145C4ADC00F3AAC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		833919B8145C4ADC00F3AAC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		833919BB145C4ADC00F3AAC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		833919BD145C4ADC00F3AAC3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		833919BE145C4ADC00F3AAC3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		833919C5145C4ED800F3AAC3 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		833919C7145CF82F00F3AAC3 /* ChristmasKeeperRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasKeeperRootViewController.h; path = Classes/ChristmasKeeperRootViewController.h; sourceTree = "<group>"; };
+		833919C8145CF82F00F3AAC3 /* ChristmasKeeperRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasKeeperRootViewController.m; path = Classes/ChristmasKeeperRootViewController.m; sourceTree = "<group>"; };
+		833919D5145CFECF00F3AAC3 /* ChristmasListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasListTableViewController.h; path = Classes/ChristmasListTableViewController.h; sourceTree = "<group>"; };
+		833919D6145CFECF00F3AAC3 /* ChristmasListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasListTableViewController.m; path = Classes/ChristmasListTableViewController.m; sourceTree = "<group>"; };
+		833919D8145CFEE000F3AAC3 /* ChristmasDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasDetailsTableViewController.h; path = Classes/ChristmasDetailsTableViewController.h; sourceTree = "<group>"; };
+		833919D9145CFEE000F3AAC3 /* ChristmasDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasDetailsTableViewController.m; path = Classes/ChristmasDetailsTableViewController.m; sourceTree = "<group>"; };
+		833919DB145F546B00F3AAC3 /* ChristmasItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasItems.h; path = Classes/ChristmasItems.h; sourceTree = "<group>"; };
+		833919DC145F546B00F3AAC3 /* ChristmasItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasItems.m; path = Classes/ChristmasItems.m; sourceTree = "<group>"; };
+		833919DF145F8D7300F3AAC3 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = Classes/KeychainWrapper.h; sourceTree = "<group>"; };
+		833919E0145F8D7300F3AAC3 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = Classes/KeychainWrapper.m; sourceTree = "<group>"; };
+		833919E2145F911F00F3AAC3 /* ChristmasConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasConstants.h; path = Classes/ChristmasConstants.h; sourceTree = "<group>"; };
+		833919E3145F911F00F3AAC3 /* ChristmasConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasConstants.m; path = Classes/ChristmasConstants.m; sourceTree = "<group>"; };
+		833919E5145F990F00F3AAC3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		833B604A14623637009D5E65 /* default.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.PNG; sourceTree = "<group>"; };
+		833B604D1462363E009D5E65 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		83A0325F1460E47D002F6D0D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../../../../Downloads/add.png; sourceTree = "<group>"; };
+		83A032611460E7FC002F6D0D /* AddChristmasItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddChristmasItemViewController.h; path = Classes/AddChristmasItemViewController.h; sourceTree = "<group>"; };
+		83A032621460E7FC002F6D0D /* AddChristmasItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddChristmasItemViewController.m; path = Classes/AddChristmasItemViewController.m; sourceTree = "<group>"; };
+		83A032651460E98A002F6D0D /* ChristmasListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasListTableViewCell.h; path = ChristmasKeeper/Classes/ChristmasListTableViewCell.h; sourceTree = "<group>"; };
+		83A032661460E98A002F6D0D /* ChristmasListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasListTableViewCell.m; path = ChristmasKeeper/Classes/ChristmasListTableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		833919A1145C4ADC00F3AAC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				832A8A7A1462384400FDDE58 /* ImageIO.framework in Frameworks */,
+				833919E6145F990F00F3AAC3 /* Security.framework in Frameworks */,
+				833919A9145C4ADC00F3AAC3 /* UIKit.framework in Frameworks */,
+				833919AB145C4ADC00F3AAC3 /* Foundation.framework in Frameworks */,
+				833919AD145C4ADC00F3AAC3 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83391999145C4ADB00F3AAC3 = {
+			isa = PBXGroup;
+			children = (
+				833919AE145C4ADC00F3AAC3 /* ChristmasKeeper */,
+				833919A7145C4ADC00F3AAC3 /* Frameworks */,
+				833919A5145C4ADC00F3AAC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		833919A5145C4ADC00F3AAC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				833919A4145C4ADC00F3AAC3 /* ChristmasKeeper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		833919A7145C4ADC00F3AAC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				832A8A791462384400FDDE58 /* ImageIO.framework */,
+				833919E5145F990F00F3AAC3 /* Security.framework */,
+				833919A8145C4ADC00F3AAC3 /* UIKit.framework */,
+				833919AA145C4ADC00F3AAC3 /* Foundation.framework */,
+				833919AC145C4ADC00F3AAC3 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		833919AE145C4ADC00F3AAC3 /* ChristmasKeeper */ = {
+			isa = PBXGroup;
+			children = (
+				833919D1145CFE6C00F3AAC3 /* Images */,
+				833919DE145F547500F3AAC3 /* Model */,
+				833919D0145CFE5000F3AAC3 /* View Controllers */,
+				83A032641460E957002F6D0D /* Table Cells */,
+				833919B7145C4ADC00F3AAC3 /* AppDelegate.h */,
+				833919B8145C4ADC00F3AAC3 /* AppDelegate.m */,
+				833919BD145C4ADC00F3AAC3 /* ViewController.h */,
+				833919BE145C4ADC00F3AAC3 /* ViewController.m */,
+				833919AF145C4ADC00F3AAC3 /* Supporting Files */,
+			);
+			path = ChristmasKeeper;
+			sourceTree = "<group>";
+		};
+		833919AF145C4ADC00F3AAC3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				833919B0145C4ADC00F3AAC3 /* ChristmasKeeper-Info.plist */,
+				833919B1145C4ADC00F3AAC3 /* InfoPlist.strings */,
+				833919B4145C4ADC00F3AAC3 /* main.m */,
+				833919B6145C4ADC00F3AAC3 /* ChristmasKeeper-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		833919D0145CFE5000F3AAC3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				833919C7145CF82F00F3AAC3 /* ChristmasKeeperRootViewController.h */,
+				833919C8145CF82F00F3AAC3 /* ChristmasKeeperRootViewController.m */,
+				833919D5145CFECF00F3AAC3 /* ChristmasListTableViewController.h */,
+				833919D6145CFECF00F3AAC3 /* ChristmasListTableViewController.m */,
+				833919D8145CFEE000F3AAC3 /* ChristmasDetailsTableViewController.h */,
+				833919D9145CFEE000F3AAC3 /* ChristmasDetailsTableViewController.m */,
+				83A032611460E7FC002F6D0D /* AddChristmasItemViewController.h */,
+				83A032621460E7FC002F6D0D /* AddChristmasItemViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		833919D1145CFE6C00F3AAC3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				833B604A14623637009D5E65 /* default.PNG */,
+				833B604D1462363E009D5E65 /* Default@2x.png */,
+				83A0325F1460E47D002F6D0D /* add.png */,
+				833919BA145C4ADC00F3AAC3 /* MainStoryboard.storyboard */,
+				833919C5145C4ED800F3AAC3 /* images.jpeg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		833919DE145F547500F3AAC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				833919DB145F546B00F3AAC3 /* ChristmasItems.h */,
+				833919DC145F546B00F3AAC3 /* ChristmasItems.m */,
+				833919DF145F8D7300F3AAC3 /* KeychainWrapper.h */,
+				833919E0145F8D7300F3AAC3 /* KeychainWrapper.m */,
+				833919E2145F911F00F3AAC3 /* ChristmasConstants.h */,
+				833919E3145F911F00F3AAC3 /* ChristmasConstants.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83A032641460E957002F6D0D /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				83A032651460E98A002F6D0D /* ChristmasListTableViewCell.h */,
+				83A032661460E98A002F6D0D /* ChristmasListTableViewCell.m */,
+			);
+			name = "Table Cells";
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		833919A3145C4ADC00F3AAC3 /* ChristmasKeeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 833919C2145C4ADC00F3AAC3 /* Build configuration list for PBXNativeTarget "ChristmasKeeper" */;
+			buildPhases = (
+				833919A0145C4ADC00F3AAC3 /* Sources */,
+				833919A1145C4ADC00F3AAC3 /* Frameworks */,
+				833919A2145C4ADC00F3AAC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChristmasKeeper;
+			productName = ChristmasKeeper;
+			productReference = 833919A4145C4ADC00F3AAC3 /* ChristmasKeeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8339199B145C4ADB00F3AAC3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = USAA;
+			};
+			buildConfigurationList = 8339199E145C4ADB00F3AAC3 /* Build configuration list for PBXProject "ChristmasKeeper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83391999145C4ADB00F3AAC3;
+			productRefGroup = 833919A5145C4ADC00F3AAC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				833919A3145C4ADC00F3AAC3 /* ChristmasKeeper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		833919A2145C4ADC00F3AAC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				833919B3145C4ADC00F3AAC3 /* InfoPlist.strings in Resources */,
+				833919BC145C4ADC00F3AAC3 /* MainStoryboard.storyboard in Resources */,
+				833919C6145C4ED800F3AAC3 /* images.jpeg in Resources */,
+				83A032601460E47D002F6D0D /* add.png in Resources */,
+				833B604B14623637009D5E65 /* default.PNG in Resources */,
+				833B604E1462363E009D5E65 /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		833919A0145C4ADC00F3AAC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				833919B5145C4ADC00F3AAC3 /* main.m in Sources */,
+				833919B9145C4ADC00F3AAC3 /* AppDelegate.m in Sources */,
+				833919BF145C4ADC00F3AAC3 /* ViewController.m in Sources */,
+				833919C9145CF82F00F3AAC3 /* ChristmasKeeperRootViewController.m in Sources */,
+				833919D7145CFECF00F3AAC3 /* ChristmasListTableViewController.m in Sources */,
+				833919DA145CFEE000F3AAC3 /* ChristmasDetailsTableViewController.m in Sources */,
+				833919DD145F546B00F3AAC3 /* ChristmasItems.m in Sources */,
+				833919E1145F8D7300F3AAC3 /* KeychainWrapper.m in Sources */,
+				833919E4145F911F00F3AAC3 /* ChristmasConstants.m in Sources */,
+				83A032631460E7FC002F6D0D /* AddChristmasItemViewController.m in Sources */,
+				83A032671460E98A002F6D0D /* ChristmasListTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		833919B1145C4ADC00F3AAC3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				833919B2145C4ADC00F3AAC3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		833919BA145C4ADC00F3AAC3 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				833919BB145C4ADC00F3AAC3 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		833919C0145C4ADC00F3AAC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		833919C1145C4ADC00F3AAC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		833919C3145C4ADC00F3AAC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChristmasKeeper/ChristmasKeeper-Prefix.pch";
+				INFOPLIST_FILE = "ChristmasKeeper/ChristmasKeeper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		833919C4145C4ADC00F3AAC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChristmasKeeper/ChristmasKeeper-Prefix.pch";
+				INFOPLIST_FILE = "ChristmasKeeper/ChristmasKeeper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8339199E145C4ADB00F3AAC3 /* Build configuration list for PBXProject "ChristmasKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				833919C0145C4ADC00F3AAC3 /* Debug */,
+				833919C1145C4ADC00F3AAC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		833919C2145C4ADC00F3AAC3 /* Build configuration list for PBXNativeTarget "ChristmasKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				833919C3145C4ADC00F3AAC3 /* Debug */,
+				833919C4145C4ADC00F3AAC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8339199B145C4ADB00F3AAC3 /* Project object */;
+}
