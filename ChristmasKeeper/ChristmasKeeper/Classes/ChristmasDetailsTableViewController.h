@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ChristmasDetailsTableViewController : UITableViewController
-
+@property (nonatomic, strong) IBOutlet UITextView *presentText;
+@property (nonatomic, strong) IBOutlet UIImageView *presentImage;
+@property (nonatomic, strong) NSString *textHolder;
+@property (nonatomic, strong) NSString *presentImageName;
 @end

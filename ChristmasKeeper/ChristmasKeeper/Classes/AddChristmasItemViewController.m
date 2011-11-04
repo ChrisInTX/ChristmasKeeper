@@ -10,7 +10,7 @@
 #import <ImageIO/ImageIO.h>
 
 @implementation AddChristmasItemViewController
-@synthesize delegate;
+@synthesize delegate, presentText, presentImage, imagePicker;
 
 - (void)didReceiveMemoryWarning
 {
@@ -20,21 +20,20 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)presentCameraForPhoto {
+- (void)presentPickerForPhoto {
     // Create image picker controller
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
     // Set source to the camera
-    imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+    self.imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     
     // Delegate is self
-    imagePicker.delegate = self;
+    self.imagePicker.delegate = self;
     
     // Allow editing of image ?
-    imagePicker.allowsEditing = NO;
+    self.imagePicker.allowsEditing = NO;
     
     // Show image picker
-    [self presentModalViewController:imagePicker animated:YES];
+    [self presentModalViewController:self.imagePicker animated:YES];
 }
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -42,20 +41,20 @@
     [picker dismissModalViewControllerAnimated:YES];
     // Access the uncropped image from info dictionary
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [self.presentImage setImage:image];
     
-    // Save image
-    NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Test.jpg"];
-    [UIImageJPEGRepresentation(image, 1.0) writeToFile:jpgPath atomically:YES];
+    //obtaining saving path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"latest_photo.jpg"];
     
-//    CGImageSourceRef src = CGImageSourceCreateWithURL((__bridge CFURLRef)[NSURL fileURLWithPath:jpgPath], NULL);
-//    CFDictionaryRef options = (__bridge CFDictionaryRef)[[NSDictionary alloc] initWithObjectsAndKeys:(id)kCFBooleanTrue, (id)kCGImageSourceCreateThumbnailWithTransform, (id)kCFBooleanTrue, (id)kCGImageSourceCreateThumbnailFromImageIfAbsent, (id)[NSNumber numberWithDouble:200.0], (id)kCGImageSourceThumbnailMaxPixelSize, nil];
-//    CGImageRef thumbnail = CGImageSourceCreateThumbnailAtIndex(src, 0, options); // Create scaled image
-//    CFRelease(options);
-//    CFRelease(src);
-//    UIImage* img = [[UIImage alloc] initWithCGImage:thumbnail];
-//    CGImageRelease(thumbnail);
-//    NSString  *jpgPath2 = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Test2.jpg"];
-//    [UIImageJPEGRepresentation(img, 1.0) writeToFile:jpgPath2 atomically:YES];
+    //extracting image from the picker and saving it
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];   
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *editedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+        NSData *webData = UIImageJPEGRepresentation(editedImage, 1.0);
+        [webData writeToFile:imagePath atomically:YES];
+    }
 
 }
 
@@ -64,6 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.imagePicker = [[UIImagePickerController alloc] init];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -86,7 +86,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self presentCameraForPhoto];
     [super viewDidAppear:animated];
 }
 
@@ -122,32 +121,35 @@
 //    return 1;
 //}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
-    cell.textLabel.text = @"HELLO WORLD!";
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-    
-    // Configure the cell...
-    
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // static NSString *CellIdentifier = @"Cell";
+//    
+//    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
+//    //cell.textLabel.text = @"HELLO WORLD!";
+////    if (cell == nil) {
+////        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+////    }
+//    
+//    // Configure the cell...
+//    
+//    return cell;
+//}
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    switch (indexPath.row) {
+        case 0:
+            [self presentPickerForPhoto];
+            break;
+        case 1:
+            self.presentText.text = @"";
+            break;
+        default:
+            break;
+    }
 }
 
 -(IBAction)cancel:(id)sender {
@@ -156,7 +158,8 @@
 
 -(IBAction)done:(id)sender {
     if (self.delegate && [(id)self.delegate respondsToSelector:@selector(addChristmasItemToList:)]) {
-        [self.delegate addChristmasItemToList:nil];
+        NSDictionary *newPresent = [NSDictionary dictionaryWithObjectsAndKeys:self.presentText.text, @"text", @"latest_photo.jpg", @"imageName", nil];
+        [self.delegate addChristmasItemToList:newPresent];
     }
     [self dismissModalViewControllerAnimated:YES];
 }

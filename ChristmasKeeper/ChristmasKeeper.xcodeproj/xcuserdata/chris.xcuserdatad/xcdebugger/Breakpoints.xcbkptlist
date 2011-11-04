@@ -4,45 +4,17 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ChristmasKeeper/Classes/KeychainWrapper.m"
-         timestampString = "341982815.425771"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "28"
-         endingLineNumber = "28"
-         landmarkName = "+searchKeychainCopyMatchingIdentifier:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "ChristmasKeeper/Classes/ChristmasKeeperRootViewController.m"
-         timestampString = "341984176.326615"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
-         landmarkName = "-textFieldDidEndEditing:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ChristmasKeeper/Classes/KeychainWrapper.m"
-         timestampString = "341984766.820142"
+         filePath = "ChristmasKeeper/Classes/AddChristmasItemViewController.m"
+         timestampString = "342073510.162773"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "53"
          endingLineNumber = "53"
-         landmarkName = "+keychainStringFromMatchingIdentifier:"
+         landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

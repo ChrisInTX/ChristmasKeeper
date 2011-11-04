@@ -12,12 +12,15 @@
 
 @interface AddChristmasItemViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic, assign) id<AddChristmasItemDelegate> delegate;
+@property (nonatomic, strong) IBOutlet UITextView *presentText;
+@property (nonatomic, strong) IBOutlet UIImageView *presentImage;
+@property (nonatomic, weak) id<AddChristmasItemDelegate> delegate;
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 -(IBAction)cancel:(id)sender;
 -(IBAction)done:(id)sender;
 
 @end
 
 @protocol AddChristmasItemDelegate <NSObject>
--(void)addChristmasItemToList:(ChristmasItems *)item;
+-(void)addChristmasItemToList:(NSDictionary *)item;
 @end

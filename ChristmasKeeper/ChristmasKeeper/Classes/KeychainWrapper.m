@@ -33,15 +33,12 @@
     // Add search return types
     [searchDictionary setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
 	
-    NSData *result = nil;
-    NSDictionary *attributesDictionary = nil;
-   
+    NSData *result = nil;   
     CFTypeRef foundDict = NULL;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &foundDict);
     
     if (status == noErr) {
-        attributesDictionary = (__bridge_transfer NSDictionary *)foundDict;
-        result = [attributesDictionary objectForKey:(__bridge id)kSecValueData];
+        result = (__bridge_transfer NSData *)foundDict;
     } else {
         result = nil;
     }

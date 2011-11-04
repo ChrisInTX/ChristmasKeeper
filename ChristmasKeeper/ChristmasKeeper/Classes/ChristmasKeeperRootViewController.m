@@ -29,11 +29,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"ChristmasTableSegue"]) {
-        NSLog(@"** Transitioning to Christmas List Table");
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:@"ChristmasTableSegue"]) {
+//        NSLog(@"** Transitioning to Christmas List Table");
+//    }
+//}
 
 - (void)presentAlertViewForPassword {
     BOOL hasPin = [[NSUserDefaults standardUserDefaults] boolForKey:PIN_SAVED];
