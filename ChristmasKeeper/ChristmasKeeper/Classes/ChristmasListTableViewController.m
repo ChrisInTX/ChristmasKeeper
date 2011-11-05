@@ -16,18 +16,24 @@
 #pragma mark - View lifecycle
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"AddChristmasPresent"]) {
+        // Set the delegate for the modal thats about to present
         UINavigationController *navigationController = segue.destinationViewController;
 		AddChristmasItemViewController *playerDetailsViewController = [[navigationController viewControllers] objectAtIndex:0];
 		playerDetailsViewController.delegate = self;
     } else  if ([[segue identifier] isEqualToString:@"ChristmasDetailsSegue"]) {
+        // Pass-forward the details about the present
 		ChristmasDetailsTableViewController *playerDetailsViewController = segue.destinationViewController;
 		playerDetailsViewController.textHolder = [[self.christmasGifts objectAtIndex:self.selectedRow] objectForKey:@"text"];
 		playerDetailsViewController.presentImageName = [[self.christmasGifts objectAtIndex:self.selectedRow] objectForKey:@"imageName"];
     }
 }
 
+// Helper method to save the JSON file
+// Here we are Write Protecting the file, then we are setting the file itself to use File Protection (Data At Rest)
 - (void)writeChristmasGiftsToDisk {
+   
     NSError *error = nil;
+    // We wrap our Gifts array inside of a Dictionary to follow the standard JSON format (you could keep it as an Array)
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObject:self.christmasGifts forKey:@"gifts"];
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary 
                                                        options:NSJSONWritingPrettyPrinted error:&error];
@@ -38,6 +44,7 @@
     [[NSFileManager defaultManager] setAttributes:[NSDictionary dictionaryWithObject:NSFileProtectionComplete forKey:NSFileProtectionKey] ofItemAtPath:jsonPath error:&error];
 }
 
+// Helper method to get the data from the JSON file
 - (NSMutableArray *)dataFromJSONFile {
    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -50,9 +57,11 @@
         return [[NSMutableArray alloc] initWithArray:[json objectForKey:@"gifts"]];
     }
 
+    // We have to have a default Cell :)
     return [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Thank Chris Lowe for an awesome tutorial on Basic iOS Security!", @"text",@"noImage", @"imageName", nil], nil];
 }
 
+// This method ensures that we always have an image available in case the user doesnt specify one
 - (void)writeDefaultImageToDocuments {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -62,13 +71,17 @@
         NSData *webData = UIImageJPEGRepresentation(editedImage, 1.0);
         [webData writeToFile:imagePath atomically:YES];
     }
-
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.christmasGifts = [self dataFromJSONFile];
+    [self writeDefaultImageToDocuments];
+
+    // Register for the Data Protection Notifications (Lock and Unlock).  
+    // ** NOTE ** These are only enforced when a user has their device Passcode Protected!
+    // Data Protection is not available in the Simulator
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(deviceWillLock)
                                                  name:UIApplicationProtectedDataWillBecomeUnavailable
@@ -78,41 +91,35 @@
                                              selector:@selector(deviceWillUnLock)
                                                  name:UIApplicationProtectedDataDidBecomeAvailable 
                                                object:nil];
-    [self writeDefaultImageToDocuments];
 }
+
+// We still must manually remove ourselves from observing
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 // This method will get called when the device is locked, but checkKey will not.  It is queued until the file becomes available again.
 - (void)deviceWillLock {
-    NSLog(@"device is about to be locked");
-    [self performSelector:@selector(checkKey) withObject:nil afterDelay:10];
+    NSLog(@"** Device is will become locked");
+    [self performSelector:@selector(checkFile) withObject:nil afterDelay:10];
 }
 
 - (void)deviceWillUnLock {
-    NSLog(@"device is about to be unlocked");
-    [self performSelector:@selector(checkKey) withObject:nil afterDelay:10];
+    NSLog(@"** Device is unlocked");
+    [self performSelector:@selector(checkFile) withObject:nil afterDelay:10];
 }
 
-- (void)checkKey {
-    NSLog(@"checkKey");
+- (void)checkFile {
+    NSLog(@"** Validate Data Protection: checkFile");
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *jsonPath = [documentsDirectory stringByAppendingPathComponent:@"christmasItems.json"];
     if ([[NSFileManager defaultManager] fileExistsAtPath:jsonPath]) {
         NSData *responseData = [NSData dataWithContentsOfFile:jsonPath];
-        NSError *error = nil;
-        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error]; 
+        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil]; 
         NSLog(@"** FILE %@", json);
     }
 
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table view data source
@@ -140,7 +147,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
         UIImage *newImage = [UIImage imageWithContentsOfFile:imagePath];
         [cell.thumbnail setImage:newImage];  
-    } else {
+    } else { // If we dont have an "imageName" key then we use the default one
         UIImage *newImage = [UIImage imageNamed:@"images.jpeg"];
         [cell.thumbnail setImage:newImage];
     }
@@ -155,7 +162,7 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedRow = indexPath.row;
+    self.selectedRow = indexPath.row; // Save the selected indexPath so that the prepareForSegue method can access the right data
     return indexPath;
 }
 
@@ -163,6 +170,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
+    // Delete the file, but not the default image (we need that one!)
     if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath] && (![@"default_image.jpeg" isEqualToString:imageName])) {
         [[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil];
     }
