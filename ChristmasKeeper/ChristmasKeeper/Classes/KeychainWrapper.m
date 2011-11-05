@@ -10,29 +10,36 @@
 #import "ChristmasConstants.h"
 
 @implementation KeychainWrapper
-
+// *** NOTE *** This class is ARC compliant - any references to CF classes must be paired with a "__bridge" statement to 
+// cast between Objective-C and Core Foundation Classes.  WWDC 2011 Video "Introduction to Automatic Reference Counting" explains this
+// *** END NOTE ***
 + (NSMutableDictionary *)setupSearchDirectoryForIdentifier:(NSString *)identifier {
+    
+    // Setup dictionary to access keychain
     NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];  
-	
+    // Specify we are using a Password (vs Certificate, Internet Password, etc)
     [searchDictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    // Uniquely identify this keychain accesser
+    [searchDictionary setObject:APP_NAME forKey:(__bridge id)kSecAttrService];
 	
+    // Uniquely identify the account who will be accessing the keychain
     NSData *encodedIdentifier = [identifier dataUsingEncoding:NSUTF8StringEncoding];
     [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrGeneric];
     [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrAccount];
-    [searchDictionary setObject:APP_NAME forKey:(__bridge id)kSecAttrService];
 	
     return searchDictionary; 
 }
 
 + (NSData *)searchKeychainCopyMatchingIdentifier:(NSString *)identifier {
+   
     NSMutableDictionary *searchDictionary = [self setupSearchDirectoryForIdentifier:identifier];
-	
-    // Add search attributes
+    // Limit search results to one
     [searchDictionary setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
 	
-    // Add search return types
+    // Specify we want NSData/CFData returned
     [searchDictionary setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
 	
+    // Search
     NSData *result = nil;   
     CFTypeRef foundDict = NULL;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &foundDict);
@@ -47,7 +54,7 @@
 }
 
 + (NSString *)keychainStringFromMatchingIdentifier:(NSString *)identifier {
-    NSData *valueData = [self searchKeychainCopyMatchingIdentifier:identifier];
+   NSData *valueData = [self searchKeychainCopyMatchingIdentifier:identifier];
     if (valueData) {
         NSString *value = [[NSString alloc] initWithData:valueData
                                                    encoding:NSUTF8StringEncoding];
@@ -66,8 +73,10 @@
     // Protect the keychain entry so its only valid when the device is unlocked
     [dictionary setObject:(__bridge id)kSecAttrAccessibleWhenUnlocked forKey:(__bridge id)kSecAttrAccessible];
 
+    // Add
     OSStatus status = SecItemAdd((__bridge CFDictionaryRef)dictionary, NULL);
 	
+    // If the Addition was successful, return.  Otherwise, attempt to update existing key or quit (return NO)
     if (status == errSecSuccess) {
         return YES;
     } else if (status == errSecDuplicateItem){
@@ -84,6 +93,7 @@
     NSData *valueData = [value dataUsingEncoding:NSUTF8StringEncoding];
     [updateDictionary setObject:valueData forKey:(__bridge id)kSecValueData];
 	
+    // Update
     OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)searchDictionary,
                                     (__bridge CFDictionaryRef)updateDictionary);
 	

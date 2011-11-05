@@ -132,8 +132,7 @@
     ChristmasListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChristmasListCell"];
     cell.textView.text = [[self.christmasGifts objectAtIndex:indexPath.row] objectForKey:@"text"];
     
-    
-    //obtaining saving path
+    //Admittedly not the most efficient way to set an image but thats not the point of the tutorial :)
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *imageKey = [[self.christmasGifts objectAtIndex:indexPath.row] objectForKey:@"imageName"];

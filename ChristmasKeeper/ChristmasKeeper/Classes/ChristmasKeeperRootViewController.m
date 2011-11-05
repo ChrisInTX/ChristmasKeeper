@@ -10,34 +10,47 @@
 #import "ChristmasConstants.h"
 #import "KeychainWrapper.h"
 
+typedef enum {
+    kAlertTypePIN = 0,
+    kAlertTypeSetup
+} AlertTypes;
+
+typedef enum {
+    kTextFieldPIN = 1,
+    kTextFieldName,
+    kTextFieldPassword
+} TextFieldTypes;
+
+
 @implementation ChristmasKeeperRootViewController
 
 - (void)presentAlertViewForPassword {
+    // Retrieve whether the user has set a PIN or not (ie, 1st time use or 2nd+)
     BOOL hasPin = [[NSUserDefaults standardUserDefaults] boolForKey:PIN_SAVED];
-    
+    // If user has set PIN, prompt for it, otherwise show Setup flow
     if (hasPin) {
         NSString *user = [[NSUserDefaults standardUserDefaults] stringForKey:USERNAME];
         NSString *message = [NSString stringWithFormat:@"What is %@'s password?", user];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter Password" message:message  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
-        [alert setAlertViewStyle:UIAlertViewStyleSecureTextInput];
-        alert.tag = 0;
+        [alert setAlertViewStyle:UIAlertViewStyleSecureTextInput]; // Gives us the password field
+        alert.tag = kAlertTypePIN;
         UITextField *text = [alert textFieldAtIndex:0];
         text.delegate = self;
         text.autocapitalizationType = UITextAutocapitalizationTypeWords;
-        text.tag = 1;
+        text.tag = kTextFieldPIN;
         [alert show];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Setup Credentials" message:@"Secure your Christmas list!"  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
         [alert setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
-        alert.tag = 1;
+        alert.tag = kAlertTypeSetup;
         UITextField *text = [alert textFieldAtIndex:0];
         text.autocapitalizationType = UITextAutocapitalizationTypeWords;
-        text.placeholder = @"Name";
+        text.placeholder = @"Name"; // Replace the standard placeholder text with something more applicable
         text.delegate = self;
-        text.tag = 2;
-        UITextField *text1 = [alert textFieldAtIndex:1];
+        text.tag = kTextFieldName;
+        UITextField *text1 = [alert textFieldAtIndex:1]; // Capture the Password text field since there are 2 fields
         text1.delegate = self;
-        text1.tag = 3;
+        text1.tag = kTextFieldPassword;
         [alert show];
     }
 }
@@ -59,12 +72,12 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     switch (textField.tag) {
-        case 1:
+        case kTextFieldPIN:
             NSLog(@"User entered PIN to validate");
             if ([textField.text length] > 0) {
                 NSUInteger fieldHash = [textField.text hash];
                 NSString *fieldString = [NSString stringWithFormat:@"%i", fieldHash];
-                NSLog(@"** HASH FOR PWD - %@", fieldString);
+                NSLog(@"** Password Hash - %@", fieldString);
                 NSString *savedString = [KeychainWrapper keychainStringFromMatchingIdentifier:PIN_SAVED];
                 if ([fieldString isEqual:savedString]) {
                     NSLog(@"** User Authenticated!!");
@@ -75,22 +88,22 @@
                 }
             }
             break;
-        case 2:
+        case kTextFieldName:
             NSLog(@"User entered name");
             if ([textField.text length] > 0) {
                 [[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:USERNAME];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }
             break;
-        case 3:
+        case kTextFieldPassword:
             NSLog(@"User entered PIN");
             if ([textField.text length] > 0) {
                 NSUInteger fieldHash = [textField.text hash];
                 NSString *fieldString = [NSString stringWithFormat:@"%i", fieldHash];
-                NSLog(@"** HASH FOR PWD - %@", fieldString);
+                NSLog(@"** Password Hash - %@", fieldString);
                 if ([KeychainWrapper createKeychainValue:fieldString forIdentifier:PIN_SAVED]) {
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:PIN_SAVED];
-                    NSLog(@"** Key Saved Successfully!!");
+                    NSLog(@"** Key saved successfully to Keychain!!");
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }                
             }
@@ -99,6 +112,7 @@
             break;
     }
 }
+
 - (BOOL)credentialsValidated {
     NSString *name = [[NSUserDefaults standardUserDefaults] stringForKey:USERNAME];
     BOOL pin =    [[NSUserDefaults standardUserDefaults] boolForKey:PIN_SAVED];
@@ -110,16 +124,16 @@
         return NO;
     }
 }
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    NSLog(@"** User dismissed with index: %i", buttonIndex);
-    if (alertView.tag == 0) {
+    if (alertView.tag == kAlertTypePIN) {
         if (buttonIndex == 1 && pinValidated) { // "Done" button
             [self performSegueWithIdentifier:@"ChristmasTableSegue" sender:self];
             pinValidated = NO;
         } else {
             [self presentAlertViewForPassword];
         }
-    } else if (alertView.tag == 1) {
+    } else if (alertView.tag == kAlertTypeSetup) {
         if (buttonIndex == 1 && [self credentialsValidated]) {
             [self performSegueWithIdentifier:@"ChristmasTableSegue" sender:self];
             credentialsValidated = NO;

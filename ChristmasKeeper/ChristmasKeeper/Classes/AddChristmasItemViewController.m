@@ -21,12 +21,11 @@
 }
 
 - (void)presentPickerForPhoto {
-    // Create image picker controller
     
     // Set source to the camera
     self.imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     
-    // Delegate is self
+    // Set Delegate
     self.imagePicker.delegate = self;
     
     // Allow editing of image ?
@@ -74,27 +73,8 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
+    self.presentText = nil;
+    self.presentImage = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -130,6 +110,7 @@
         NSDictionary *newPresent = [NSDictionary dictionaryWithObjectsAndKeys:self.presentText.text, @"text", self.presentImageFileName, @"imageName", nil];
         [self.delegate addChristmasItemToList:newPresent];
     }
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
