@@ -12,7 +12,6 @@
 {
     BOOL pinValidated;
     BOOL credentialsValidated;
-
 }
 
 @end

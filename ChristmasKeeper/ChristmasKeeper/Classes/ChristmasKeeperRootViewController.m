@@ -12,29 +12,6 @@
 
 @implementation ChristmasKeeperRootViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"ChristmasTableSegue"]) {
-//        NSLog(@"** Transitioning to Christmas List Table");
-//    }
-//}
-
 - (void)presentAlertViewForPassword {
     BOOL hasPin = [[NSUserDefaults standardUserDefaults] boolForKey:PIN_SAVED];
     
@@ -78,13 +55,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self presentAlertViewForPassword];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
