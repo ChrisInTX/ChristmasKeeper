@@ -10,7 +10,7 @@
 #import <ImageIO/ImageIO.h>
 
 @implementation AddChristmasItemViewController
-@synthesize delegate, presentText, presentImage, imagePicker;
+@synthesize delegate, presentText, presentImage, imagePicker, presentImageFileName;
 
 - (void)didReceiveMemoryWarning
 {
@@ -46,7 +46,11 @@
     //obtaining saving path
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"latest_photo.jpg"];
+    NSError *error = nil;
+    NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    NSString *fileName = [NSString stringWithFormat:@"photo_%i.jpeg", [dirContents count]];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    self.presentImageFileName = [NSString stringWithFormat:fileName];
     
     //extracting image from the picker and saving it
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];   
@@ -64,12 +68,6 @@
 {
     [super viewDidLoad];
      self.imagePicker = [[UIImagePickerController alloc] init];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -105,37 +103,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//#warning Incomplete method implementation.
-//    // Return the number of rows in the section.
-//    return 1;
-//}
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    // static NSString *CellIdentifier = @"Cell";
-//    
-//    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
-//    //cell.textLabel.text = @"HELLO WORLD!";
-////    if (cell == nil) {
-////        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-////    }
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,9 +110,6 @@
     switch (indexPath.row) {
         case 0:
             [self presentPickerForPhoto];
-            break;
-        case 1:
-            self.presentText.text = @"";
             break;
         default:
             break;
@@ -157,8 +121,13 @@
 }
 
 -(IBAction)done:(id)sender {
+    // If the user just presses "Done" without setting an image, this would be blank
+    if (!self.presentImageFileName) {
+        self.presentImageFileName = [NSString stringWithFormat:@"default_image.jpeg"];
+    }
+    
     if (self.delegate && [(id)self.delegate respondsToSelector:@selector(addChristmasItemToList:)]) {
-        NSDictionary *newPresent = [NSDictionary dictionaryWithObjectsAndKeys:self.presentText.text, @"text", @"latest_photo.jpg", @"imageName", nil];
+        NSDictionary *newPresent = [NSDictionary dictionaryWithObjectsAndKeys:self.presentText.text, @"text", self.presentImageFileName, @"imageName", nil];
         [self.delegate addChristmasItemToList:newPresent];
     }
     [self dismissModalViewControllerAnimated:YES];

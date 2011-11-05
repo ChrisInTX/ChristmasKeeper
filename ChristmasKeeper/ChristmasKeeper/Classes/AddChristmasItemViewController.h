@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *presentImage;
 @property (nonatomic, weak) id<AddChristmasItemDelegate> delegate;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (nonatomic, strong) NSString *presentImageFileName;
 -(IBAction)cancel:(id)sender;
 -(IBAction)done:(id)sender;
 

@@ -62,7 +62,10 @@
     NSMutableDictionary *dictionary = [self setupSearchDirectoryForIdentifier:identifier];
     NSData *valueData = [value dataUsingEncoding:NSUTF8StringEncoding];
     [dictionary setObject:valueData forKey:(__bridge id)kSecValueData];
-	
+   
+    // Protect the keychain entry so its only valid when the device is unlocked
+    [dictionary setObject:(__bridge id)kSecAttrAccessibleWhenUnlocked forKey:(__bridge id)kSecAttrAccessible];
+
     OSStatus status = SecItemAdd((__bridge CFDictionaryRef)dictionary, NULL);
 	
     if (status == errSecSuccess) {
