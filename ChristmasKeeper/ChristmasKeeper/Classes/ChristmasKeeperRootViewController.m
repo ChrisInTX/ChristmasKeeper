@@ -76,11 +76,8 @@ typedef enum {
         case kTextFieldPIN: // We go here if this is the 2nd+ time used (we've already set a PIN at Setup)
             NSLog(@"User entered PIN to validate");
             if ([textField.text length] > 0) {
-                NSUInteger fieldHash = [textField.text hash]; // Get the hash of the entered PIN
-                NSString *fieldString = [NSString stringWithFormat:@"%i", fieldHash];
-                NSLog(@"** Password Hash - %@", fieldString);
-                NSString *savedString = [KeychainWrapper keychainStringFromMatchingIdentifier:PIN_SAVED]; // Get the hash of the stored PIN
-                if ([fieldString isEqual:savedString]) { // Compare them
+                NSUInteger fieldHash = [textField.text hash]; // Get the hash of the entered PIN, minimize contact with the real password
+                if ([KeychainWrapper compareKeychainValueForMatchingPIN:fieldHash]) { // Compare them
                     NSLog(@"** User Authenticated!!");
                     pinValidated = YES;
                 } else {
@@ -89,7 +86,7 @@ typedef enum {
                 }
             }
             break;
-        case kTextFieldName: // This is part of the Setup flow
+        case kTextFieldName: // 1st part of the Setup flow
             NSLog(@"User entered name");
             if ([textField.text length] > 0) {
                 [[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:USERNAME];
@@ -100,7 +97,7 @@ typedef enum {
             NSLog(@"User entered PIN");
             if ([textField.text length] > 0) {
                 NSUInteger fieldHash = [textField.text hash];
-                NSString *fieldString = [NSString stringWithFormat:@"%i", fieldHash];
+                NSString *fieldString = [KeychainWrapper securedSHA1DigestHashForPIN:fieldHash];
                 NSLog(@"** Password Hash - %@", fieldString);
                 // Save PIN hash to the keychain (NEVER store the direct PIN)
                 if ([KeychainWrapper createKeychainValue:fieldString forIdentifier:PIN_SAVED]) {

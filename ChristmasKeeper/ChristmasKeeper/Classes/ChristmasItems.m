@@ -50,7 +50,7 @@
     }
     
     // We have to have a default Cell :)
-    return [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Thank Chris Lowe for an awesome tutorial on Basic iOS Security!", @"text",@"noImage", @"imageName", nil], nil];
+    return [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Thank Chris Lowe for an awesome tutorial on Basic iOS Security! Follow him on Twitter (@chrisintx)", @"text",@"noImage", @"imageName", nil], nil];
 }
 
 // This method ensures that we always have an image available in case the user doesnt specify one

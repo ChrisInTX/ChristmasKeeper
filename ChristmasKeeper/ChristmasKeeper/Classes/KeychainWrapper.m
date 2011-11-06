@@ -8,6 +8,7 @@
 
 #import "KeychainWrapper.h"
 #import "ChristmasConstants.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation KeychainWrapper
 // *** NOTE *** This class is ARC compliant - any references to CF classes must be paired with a "__bridge" statement to 
@@ -108,6 +109,42 @@
     NSMutableDictionary *searchDictionary = [self setupSearchDirectoryForIdentifier:identifier];
     CFDictionaryRef dictionary = (__bridge CFDictionaryRef)searchDictionary;
     SecItemDelete(dictionary);
+}
+
++ (NSString*)computeSHA1DigestForString:(NSString*)input {
+    const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:input.length];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, data.length, digest);
+    
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return output;
+    
+}
+
++ (NSString *)securedSHA1DigestHashForPIN:(NSUInteger)pinHash {
+    // Hash + Salt
+    // Hash -> SHA1
+    NSString *computedHashString = [NSString stringWithFormat:@"%i%@", pinHash, SALT_HASH];
+    NSString *finalHash = [self computeSHA1DigestForString:computedHashString];
+    NSLog(@"** Computed hash: %@ with SHA1 Digest: %@", computedHashString, finalHash);
+    return finalHash;
+}
+
++ (BOOL)compareKeychainValueForMatchingPIN:(NSUInteger)pinHash {
+
+    if ([[self keychainStringFromMatchingIdentifier:PIN_SAVED] isEqualToString:[self securedSHA1DigestHashForPIN:pinHash]]) {
+        return YES;
+    } else {
+        return NO;
+    }    
+    
 }
 
 @end

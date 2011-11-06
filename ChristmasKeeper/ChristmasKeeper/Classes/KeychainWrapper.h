@@ -28,4 +28,8 @@
 // Delete a value in the keychain
 + (void)deleteItemFromKeychainWithIdentifier:(NSString *)identifier;
 
++ (BOOL)compareKeychainValueForMatchingPIN:(NSUInteger)pinHash;
+
++ (NSString *)securedSHA1DigestHashForPIN:(NSUInteger)pinHash;
+
 @end
