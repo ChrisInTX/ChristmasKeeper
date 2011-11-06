@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AddChristmasItemViewController.h"
+#import "ChristmasItems.h"
 
 @interface ChristmasListTableViewController : UITableViewController <AddChristmasItemDelegate>
-@property (nonatomic, strong) NSMutableArray *christmasGifts;
-@property (nonatomic) NSUInteger selectedRow;
+@property (nonatomic, strong) ChristmasItems *christmasGifts;
+@property (nonatomic, strong) NSIndexPath *selectedRow;
 @end

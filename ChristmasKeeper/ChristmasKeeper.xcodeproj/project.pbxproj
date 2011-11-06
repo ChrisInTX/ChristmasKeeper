@@ -24,6 +24,7 @@
 		83A032601460E47D002F6D0D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A0325F1460E47D002F6D0D /* add.png */; };
 		83A032631460E7FC002F6D0D /* AddChristmasItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A032621460E7FC002F6D0D /* AddChristmasItemViewController.m */; };
 		83A032671460E98A002F6D0D /* ChristmasListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A032661460E98A002F6D0D /* ChristmasListTableViewCell.m */; };
+		83A79D011466C3430011FB6F /* ChristmasItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A79D001466C3430011FB6F /* ChristmasItems.m */; };
 		83B030F71463A9AA00DB4371 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B030F51463A9AA00DB4371 /* Default.png */; };
 		83B030F81463A9AA00DB4371 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B030F61463A9AA00DB4371 /* Default@2x.png */; };
 		83B030FE1463AB4E00DB4371 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B030FD1463AB4E00DB4371 /* icon.png */; };
@@ -59,6 +60,8 @@
 		83A032621460E7FC002F6D0D /* AddChristmasItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddChristmasItemViewController.m; path = Classes/AddChristmasItemViewController.m; sourceTree = "<group>"; };
 		83A032651460E98A002F6D0D /* ChristmasListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasListTableViewCell.h; path = ChristmasKeeper/Classes/ChristmasListTableViewCell.h; sourceTree = "<group>"; };
 		83A032661460E98A002F6D0D /* ChristmasListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasListTableViewCell.m; path = ChristmasKeeper/Classes/ChristmasListTableViewCell.m; sourceTree = "<group>"; };
+		83A79CFF1466C3430011FB6F /* ChristmasItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChristmasItems.h; path = Classes/ChristmasItems.h; sourceTree = "<group>"; };
+		83A79D001466C3430011FB6F /* ChristmasItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChristmasItems.m; path = Classes/ChristmasItems.m; sourceTree = "<group>"; };
 		83B030F51463A9AA00DB4371 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		83B030F61463A9AA00DB4371 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		83B030FD1463AB4E00DB4371 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				833919DF145F8D7300F3AAC3 /* KeychainWrapper.h */,
 				833919E0145F8D7300F3AAC3 /* KeychainWrapper.m */,
 				833919E2145F911F00F3AAC3 /* ChristmasConstants.h */,
+				83A79CFF1466C3430011FB6F /* ChristmasItems.h */,
+				83A79D001466C3430011FB6F /* ChristmasItems.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				833919E1145F8D7300F3AAC3 /* KeychainWrapper.m in Sources */,
 				83A032631460E7FC002F6D0D /* AddChristmasItemViewController.m in Sources */,
 				83A032671460E98A002F6D0D /* ChristmasListTableViewCell.m in Sources */,
+				83A79D011466C3430011FB6F /* ChristmasItems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
