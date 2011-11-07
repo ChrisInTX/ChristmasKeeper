@@ -13,4 +13,5 @@
 @property (nonatomic, strong) IBOutlet UIImageView *presentImage;
 @property (nonatomic, strong) NSString *textHolder;
 @property (nonatomic, strong) NSString *presentImageName;
+- (IBAction)tweetButtonTapped:(id)sender;
 @end

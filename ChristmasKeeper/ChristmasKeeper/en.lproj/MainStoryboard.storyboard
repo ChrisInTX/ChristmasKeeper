@@ -114,7 +114,13 @@
                             <outlet property="delegate" destination="P1f-cG-IYA" id="VRM-mT-2x3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Present Details" id="rx0-vC-BTl"/>
+                    <navigationItem key="navigationItem" title="Present Details" id="rx0-vC-BTl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Oid-UY-yMV">
+                            <connections>
+                                <action selector="tweetButtonTapped:" destination="P1f-cG-IYA" id="8cd-vY-fPn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="presentImage" destination="4L7-IT-8O9" id="AuC-OH-iyK"/>
                         <outlet property="presentText" destination="eCp-Ba-Pkn" id="7gU-mO-ZnO"/>
@@ -273,6 +279,38 @@
     <resources>
         <image name="images.jpeg" width="204" height="204"/>
     </resources>
+    <classes>
+        <class className="AddChristmasItemViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddChristmasItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="presentImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="presentText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ChristmasDetailsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasDetailsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tweetButtonTapped:"/>
+                <relationship kind="outlet" name="presentImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="presentText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ChristmasKeeperRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasKeeperRootViewController.h"/>
+        </class>
+        <class className="ChristmasListTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasListTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ChristmasListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasListTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

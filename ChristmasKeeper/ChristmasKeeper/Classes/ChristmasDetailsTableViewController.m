@@ -7,7 +7,7 @@
 //
 
 #import "ChristmasDetailsTableViewController.h"
-
+#import <Twitter/Twitter.h>
 
 @implementation ChristmasDetailsTableViewController
 @synthesize presentImage,presentText,textHolder,presentImageName;
@@ -41,4 +41,18 @@
     [super viewWillAppear:animated];
 }
 
+- (IBAction)tweetButtonTapped:(id)sender { 
+    if ([TWTweetComposeViewController canSendTweet])
+    {
+        TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+        [tweetSheet setInitialText:self.presentText.text];
+        [tweetSheet addImage:self.presentImage.image];
+        [self presentModalViewController:tweetSheet animated:YES];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Tweeting is unavailable right now, check your internet connection and that you have at least one Twitter account setup" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
 @end
