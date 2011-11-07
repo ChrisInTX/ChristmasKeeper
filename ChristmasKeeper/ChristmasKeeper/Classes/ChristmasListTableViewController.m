@@ -51,6 +51,7 @@
 #pragma mark - Data Protection Testing Methods
 
 // This method will get called when the device is locked, but checkKey will not.  It is queued until the file becomes available again.
+// I've seen very sparradic results with iOS5 and this method executing or not
 - (void)deviceWillLock {
     NSLog(@"** Device is will become locked");
     [self performSelector:@selector(checkFile) withObject:nil afterDelay:10];
