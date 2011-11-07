@@ -57,4 +57,13 @@
      */
 }
 
+- (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application {
+    /* Called when the application has been taken out of the foreground (screen lock, phone call, close, crash, etc) */
+    NSLog(@"** Application will lock files");
+}
+
+- (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application {
+    NSLog(@"Application did unlock files");
+}
+
 @end

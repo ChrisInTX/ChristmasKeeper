@@ -344,15 +344,15 @@
 		833919C3145C4ADC00F3AAC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChristmasKeeper/ChristmasKeeper-Prefix.pch";
 				INFOPLIST_FILE = "ChristmasKeeper/ChristmasKeeper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -360,15 +360,15 @@
 		833919C4145C4ADC00F3AAC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lowe (D2J85X6ZH4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChristmasKeeper/ChristmasKeeper-Prefix.pch";
 				INFOPLIST_FILE = "ChristmasKeeper/ChristmasKeeper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "35744681-0529-4E6E-86BE-1B8ABDD03FF8";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
