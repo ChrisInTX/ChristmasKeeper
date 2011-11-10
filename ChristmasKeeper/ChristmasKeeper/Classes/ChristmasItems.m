@@ -57,11 +57,11 @@
 - (void)writeDefaultImageToDocuments {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"default_image.jpeg"];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"default_image.png"];
     // If the file does NOT exist, then save it
     if (![[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
-        UIImage *editedImage = [UIImage imageNamed:@"images.jpeg"];
-        NSData *webData = UIImageJPEGRepresentation(editedImage, 1.0);
+        UIImage *editedImage = [UIImage imageNamed:@"present.png"];
+        NSData *webData = UIImagePNGRepresentation(editedImage);
         [webData writeToFile:imagePath atomically:YES];
     }
 }
@@ -81,7 +81,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
         presentImage = [UIImage imageWithContentsOfFile:imagePath];
     } else { // If we dont have an "imageName" key then we use the default one
-        presentImage = [UIImage imageNamed:@"images.jpeg"];
+        presentImage = [UIImage imageNamed:@"present.png"];
     }
     return presentImage;
 
@@ -92,7 +92,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
     // Delete the file, but not the default image (we need that one!)
-    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath] && (![@"default_image.jpeg" isEqualToString:imageName])) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath] && (![@"default_image.png" isEqualToString:imageName])) {
         [[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil];
     }
 }

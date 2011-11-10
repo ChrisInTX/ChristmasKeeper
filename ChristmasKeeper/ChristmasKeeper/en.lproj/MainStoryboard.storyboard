@@ -27,7 +27,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="images.jpeg" id="hOT-bB-Uzf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="present.png" id="hOT-bB-Uzf">
                                 <rect key="frame" x="81" y="150" width="159" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -78,7 +78,7 @@
                                             <rect key="frame" x="10" y="1" width="300" height="235"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="images.jpeg" id="4L7-IT-8O9">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="present.png" id="4L7-IT-8O9">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="235"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -152,7 +152,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="images.jpeg" id="gCJ-KN-CHb">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="present.png" id="gCJ-KN-CHb">
                                             <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -219,7 +219,7 @@
                                             <rect key="frame" x="10" y="1" width="300" height="235"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="images.jpeg" id="GXh-b8-sla">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="present.png" id="GXh-b8-sla">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="235"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -273,44 +273,12 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-1207" y="-1390"/>
+            <point key="canvasLocation" x="-1223" y="-1390"/>
         </scene>
     </scenes>
     <resources>
-        <image name="images.jpeg" width="204" height="204"/>
+        <image name="present.png" width="204" height="204"/>
     </resources>
-    <classes>
-        <class className="AddChristmasItemViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddChristmasItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="presentImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="presentText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="ChristmasDetailsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasDetailsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tweetButtonTapped:"/>
-                <relationship kind="outlet" name="presentImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="presentText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="ChristmasKeeperRootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasKeeperRootViewController.h"/>
-        </class>
-        <class className="ChristmasListTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasListTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="textView" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ChristmasListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasListTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

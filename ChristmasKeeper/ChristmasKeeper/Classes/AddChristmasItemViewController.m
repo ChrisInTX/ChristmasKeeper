@@ -49,7 +49,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSError *error = nil;
     NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:&error];
-    NSString *fileName = [NSString stringWithFormat:@"photo_%i.jpeg", [dirContents count]];
+    NSString *fileName = [NSString stringWithFormat:@"photo_%i.png", [dirContents count]];
     NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:fileName];
     self.presentImageFileName = [NSString stringWithFormat:fileName];
     
@@ -57,7 +57,7 @@
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];   
     if ([mediaType isEqualToString:@"public.image"]){
         UIImage *editedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        NSData *webData = UIImageJPEGRepresentation(editedImage, 1.0);
+        NSData *webData = UIImagePNGRepresentation(editedImage);
         [webData writeToFile:imagePath atomically:YES];
     }
 }
@@ -101,7 +101,7 @@
     
     // If the user just presses "Done" without setting an image, this would be blank
     if (!self.presentImageFileName) {
-        self.presentImageFileName = [NSString stringWithFormat:@"default_image.jpeg"];
+        self.presentImageFileName = [NSString stringWithFormat:@"default_image.png"];
     }
     
     // Check to make sure we have a delegate and that it implements our method
