@@ -23,6 +23,7 @@ typedef enum {
 } TextFieldTypes;
 
 @implementation ChristmasKeeperRootViewController
+@synthesize pinValidated;
 
 - (void)presentAlertViewForPassword {
     
@@ -61,8 +62,7 @@ typedef enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    pinValidated = NO;
-    credentialsValidated = NO;
+    self.pinValidated = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -79,10 +79,10 @@ typedef enum {
                 NSUInteger fieldHash = [textField.text hash]; // Get the hash of the entered PIN, minimize contact with the real password
                 if ([KeychainWrapper compareKeychainValueForMatchingPIN:fieldHash]) { // Compare them
                     NSLog(@"** User Authenticated!!");
-                    pinValidated = YES;
+                    self.pinValidated = YES;
                 } else {
                     NSLog(@"** Wrong Password :(");
-                    pinValidated = NO;
+                    self.pinValidated = NO;
                 }
             }
             break;
@@ -117,26 +117,23 @@ typedef enum {
     NSString *name = [[NSUserDefaults standardUserDefaults] stringForKey:USERNAME];
     BOOL pin =    [[NSUserDefaults standardUserDefaults] boolForKey:PIN_SAVED];
     if (name && pin) {
-        credentialsValidated = YES;
         return YES;
     } else {
-        credentialsValidated = NO;
         return NO;
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == kAlertTypePIN) {
-        if (buttonIndex == 1 && pinValidated) { // User selected "Done"
+        if (buttonIndex == 1 && self.pinValidated) { // User selected "Done"
             [self performSegueWithIdentifier:@"ChristmasTableSegue" sender:self];
-            pinValidated = NO;
+            self.pinValidated = NO;
         } else { // User selected "Cancel"
             [self presentAlertViewForPassword];
         }
     } else if (alertView.tag == kAlertTypeSetup) {
         if (buttonIndex == 1 && [self credentialsValidated]) { // User selected "Done"
             [self performSegueWithIdentifier:@"ChristmasTableSegue" sender:self];
-            credentialsValidated = NO;
         } else { // User selected "Cancel"
             [self presentAlertViewForPassword];
         }

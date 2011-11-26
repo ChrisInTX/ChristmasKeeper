@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		832A8A7A1462384400FDDE58 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832A8A791462384400FDDE58 /* ImageIO.framework */; };
 		833919A9145C4ADC00F3AAC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833919A8145C4ADC00F3AAC3 /* UIKit.framework */; };
 		833919AB145C4ADC00F3AAC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833919AA145C4ADC00F3AAC3 /* Foundation.framework */; };
 		833919AD145C4ADC00F3AAC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833919AC145C4ADC00F3AAC3 /* CoreGraphics.framework */; };
@@ -74,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83A79D0714678BE40011FB6F /* Twitter.framework in Frameworks */,
-				832A8A7A1462384400FDDE58 /* ImageIO.framework in Frameworks */,
 				833919E6145F990F00F3AAC3 /* Security.framework in Frameworks */,
 				833919A9145C4ADC00F3AAC3 /* UIKit.framework in Frameworks */,
 				833919AB145C4ADC00F3AAC3 /* Foundation.framework in Frameworks */,

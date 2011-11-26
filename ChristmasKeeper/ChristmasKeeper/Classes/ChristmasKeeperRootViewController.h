@@ -9,9 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ChristmasKeeperRootViewController : UIViewController <UITextFieldDelegate>
-{
-    BOOL pinValidated;
-    BOOL credentialsValidated;
-}
-
+@property (nonatomic) BOOL pinValidated;
 @end

@@ -39,7 +39,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-3018" y="-715"/>
+            <point key="canvasLocation" x="-2282" y="-1131"/>
         </scene>
         <scene sceneID="yFJ-Qn-axb">
             <objects>
@@ -58,7 +58,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-2582" y="-715"/>
+            <point key="canvasLocation" x="-1846" y="-1131"/>
         </scene>
         <scene sceneID="hYm-xg-U2i">
             <objects>
@@ -127,7 +127,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-1625" y="-715"/>
+            <point key="canvasLocation" x="-889" y="-1131"/>
         </scene>
         <scene sceneID="a5G-kU-2aj">
             <objects>
@@ -146,14 +146,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is placeholder text for when I want to add a new present" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" id="ueY-DW-dQm">
-                                            <rect key="frame" x="97" y="0.0" width="203" height="89"/>
+                                            <rect key="frame" x="98" y="0.0" width="202" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="present.png" id="gCJ-KN-CHb">
-                                            <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -181,7 +181,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-2158" y="-715"/>
+            <point key="canvasLocation" x="-1422" y="-1131"/>
         </scene>
         <scene sceneID="VbJ-ZH-g5d">
             <objects>
@@ -199,7 +199,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-1625" y="-1390"/>
+            <point key="canvasLocation" x="-889" y="-1806"/>
         </scene>
         <scene sceneID="Ygb-y9-0pN">
             <objects>
@@ -212,15 +212,15 @@
                         <sections>
                             <tableViewSection id="AVW-dw-8aQ">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="236" id="eDS-J0-70p">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="237"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewPresentImageCell" rowHeight="237" id="eDS-J0-70p">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="238"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="235"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="236"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="present.png" id="GXh-b8-sla">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="235"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="236"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -228,15 +228,15 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" rowHeight="177" id="FUI-3V-G5P">
-                                        <rect key="frame" x="0.0" y="247" width="320" height="178"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewPresentTextCell" rowHeight="177" id="FUI-3V-G5P">
+                                        <rect key="frame" x="0.0" y="248" width="320" height="178"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="176"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter the details of your Christmas present here!" id="HZd-2K-1Sh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="157"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="156"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
@@ -273,12 +273,44 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-1223" y="-1390"/>
+            <point key="canvasLocation" x="-487" y="-1806"/>
         </scene>
     </scenes>
     <resources>
         <image name="present.png" width="204" height="204"/>
     </resources>
+    <classes>
+        <class className="AddChristmasItemViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddChristmasItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="presentImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="presentText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ChristmasDetailsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasDetailsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tweetButtonTapped:"/>
+                <relationship kind="outlet" name="presentImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="presentText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ChristmasKeeperRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasKeeperRootViewController.h"/>
+        </class>
+        <class className="ChristmasListTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasListTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ChristmasListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChristmasListTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

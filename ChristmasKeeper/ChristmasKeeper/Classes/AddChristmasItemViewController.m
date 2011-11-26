@@ -7,7 +7,6 @@
 //
 
 #import "AddChristmasItemViewController.h"
-#import <ImageIO/ImageIO.h>
 
 @implementation AddChristmasItemViewController
 @synthesize delegate, presentText, presentImage, imagePicker, presentImageFileName;
