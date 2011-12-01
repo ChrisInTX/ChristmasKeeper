@@ -33,8 +33,8 @@
 // Delete a value in the keychain
 + (void)deleteItemFromKeychainWithIdentifier:(NSString *)identifier;
 
-// Generates an SHA1 (much more secure than MD5) Hash
-+ (NSString *)securedSHA1DigestHashForPIN:(NSUInteger)pinHash;
-+ (NSString*)computeSHA1DigestForString:(NSString*)input;
+// Generates an SHA256 (much more secure than MD5) Hash
++ (NSString *)securedSHA256DigestHashForPIN:(NSUInteger)pinHash;
++ (NSString*)computeSHA256DigestForString:(NSString*)input;
 
 @end
