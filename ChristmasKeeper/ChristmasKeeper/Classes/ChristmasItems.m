@@ -20,6 +20,23 @@
     return self;
 }
 
+// Helper method to get the data from the JSON file
+- (NSMutableArray *)dataFromJSONFile:(NSString *)jsonFileName {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *jsonPath = [documentsDirectory stringByAppendingPathComponent:jsonFileName];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:jsonPath]) {
+        NSError* error = nil;
+        NSData *responseData = [NSData dataWithContentsOfFile:jsonPath];
+        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];        
+        return [[NSMutableArray alloc] initWithArray:[json objectForKey:@"gifts"]];
+    }
+    
+    // We have to have a default Cell :)
+    return [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Thank Chris Lowe for an awesome tutorial on Basic iOS Security! Maybe him on Twitter (@chrisintx)?", @"text",@"noImage", @"imageName", nil], nil];
+}
+
 // Helper method to save the JSON file
 // Here we are Write Protecting the file, then we are setting the file itself to use File Protection (Data At Rest)
 - (void)saveChristmasGifts {
@@ -36,23 +53,6 @@
     [[NSFileManager defaultManager] setAttributes:[NSDictionary dictionaryWithObject:NSFileProtectionComplete forKey:NSFileProtectionKey] ofItemAtPath:jsonPath error:&error];
 }
 
-// Helper method to get the data from the JSON file
-- (NSMutableArray *)dataFromJSONFile:(NSString *)jsonFileName {
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *jsonPath = [documentsDirectory stringByAppendingPathComponent:jsonFileName];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:jsonPath]) {
-        NSError* error = nil;
-        NSData *responseData = [NSData dataWithContentsOfFile:jsonPath];
-        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];        
-        return [[NSMutableArray alloc] initWithArray:[json objectForKey:@"gifts"]];
-    }
-    
-    // We have to have a default Cell :)
-    return [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Thank Chris Lowe for an awesome tutorial on Basic iOS Security! Follow him on Twitter (@chrisintx)", @"text",@"noImage", @"imageName", nil], nil];
-}
-
 // This method ensures that we always have an image available in case the user doesnt specify one
 - (void)writeDefaultImageToDocuments {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -66,9 +66,14 @@
     }
 }
 
-- (void)addPresentToChristmasList:(NSDictionary *)newItem {
-    [self.christmasList addObject:newItem];
-    [self saveChristmasGifts];
+// Accessor method to retrieve the saved text for a given present
+- (NSString *)textForPresentAtIndex:(NSIndexPath *)indexPath {
+    return  [[self.christmasList objectAtIndex:indexPath.row] objectForKey:@"text"];
+}
+
+// Accessor method to retrieve the saved image name for a given present
+- (NSString *)imageNameForPresentAtIndex:(NSIndexPath *)indexPath {
+    return [[self.christmasList objectAtIndex:indexPath.row] objectForKey:@"imageName"];
 }
 
 - (UIImage *)imageForPresentAtIndex:(NSIndexPath *)indexPath {
@@ -84,7 +89,6 @@
         presentImage = [UIImage imageNamed:@"present.png"];
     }
     return presentImage;
-
 }
 
 - (void)deleteImageWithName:(NSString *)imageName {
@@ -97,21 +101,15 @@
     }
 }
 
+- (void)addPresentToChristmasList:(NSDictionary *)newItem {
+    [self.christmasList addObject:newItem];
+    [self saveChristmasGifts];
+}
+
 - (void)removeGiftAtIndexPath:(NSIndexPath *)indexPath {
     [self deleteImageWithName:[[self.christmasList objectAtIndex:indexPath.row] objectForKey:@"imageName"]];
     [self.christmasList removeObjectAtIndex:indexPath.row];
     [self saveChristmasGifts];
-}
-
-
-// Accessor method to retrieve the saved text for a given present
-- (NSString *)textForPresentAtIndex:(NSIndexPath *)indexPath {
-    return  [[self.christmasList objectAtIndex:indexPath.row] objectForKey:@"text"];
-}
-
-// Accessor method to retrieve the saved image name for a given present
-- (NSString *)imageNameForPresentAtIndex:(NSIndexPath *)indexPath {
-    return [[self.christmasList objectAtIndex:indexPath.row] objectForKey:@"imageName"];
 }
 
 @end

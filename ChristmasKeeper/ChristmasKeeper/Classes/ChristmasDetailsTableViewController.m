@@ -10,7 +10,7 @@
 #import <Twitter/Twitter.h>
 
 @implementation ChristmasDetailsTableViewController
-@synthesize presentImage,presentText,textHolder,presentImageName;
+@synthesize presentImage, presentText, textHolder, presentImageName;
 
 #pragma mark - View lifecycle
 - (void)viewDidLoad
