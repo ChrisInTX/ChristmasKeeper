@@ -11,14 +11,6 @@
 @implementation AddChristmasItemViewController
 @synthesize delegate, presentText, presentImage, imagePicker, presentImageFileName;
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 - (void)presentPickerForPhoto {
     
     // Set source to the Photo Library (so it works in Simulator and on non-camera devices)

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class ChristmasItems;
-
-@protocol AddChristmasItemDelegate;
+// This delegate is used to send back the newly created Present to the Table View
+@protocol AddChristmasItemDelegate <NSObject>
+-(void)addChristmasItemToList:(NSDictionary *)item;
+@end
 
 @interface AddChristmasItemViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -23,9 +24,4 @@
 -(IBAction)cancel:(id)sender;
 -(IBAction)done:(id)sender;
 
-@end
-
-// This delegate is used to send back the newly created Present to the Table View
-@protocol AddChristmasItemDelegate <NSObject>
--(void)addChristmasItemToList:(NSDictionary *)item;
 @end

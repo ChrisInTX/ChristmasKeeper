@@ -34,7 +34,7 @@
     }
     
     // We have to have a default Cell :)
-    return [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Thank Chris Lowe for an awesome tutorial on Basic iOS Security! Maybe him on Twitter (@chrisintx)?", @"text",@"noImage", @"imageName", nil], nil];
+    return [[NSMutableArray alloc] initWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"Thank Chris Lowe for an awesome tutorial on Basic iOS Security! Maybe follow him on Twitter (@chrisintx)?", @"text", @"noImage", @"imageName", nil], nil];
 }
 
 // Helper method to save the JSON file

@@ -181,7 +181,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-1422" y="-1131"/>
+            <point key="canvasLocation" x="-1401" y="-1131"/>
         </scene>
         <scene sceneID="VbJ-ZH-g5d">
             <objects>
@@ -199,7 +199,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-889" y="-1806"/>
+            <point key="canvasLocation" x="-889" y="-1770"/>
         </scene>
         <scene sceneID="Ygb-y9-0pN">
             <objects>
@@ -273,7 +273,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-487" y="-1806"/>
+            <point key="canvasLocation" x="-479" y="-1770"/>
         </scene>
     </scenes>
     <resources>
