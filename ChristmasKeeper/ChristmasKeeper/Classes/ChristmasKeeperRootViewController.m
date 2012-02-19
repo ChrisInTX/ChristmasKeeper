@@ -132,6 +132,7 @@
             [self performSegueWithIdentifier:@"ChristmasTableSegue" sender:self];
             self.pinValidated = NO;
         } else { // User selected "Cancel"
+            self.pinValidated = NO;
             [self presentAlertViewForPassword];
         }
     } else if (alertView.tag == kAlertTypeSetup) {
